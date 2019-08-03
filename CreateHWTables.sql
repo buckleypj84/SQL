@@ -37,7 +37,18 @@ create table IF NOT EXISTS pewlett.depts_employees(
 	,to_date date not null
 );
 
-select * from pewlett.depts_employees;
+select * from pewlett.dept_manager;
+
+drop table IF EXISTS pewlett.dept_manager
+
+create table IF NOT EXISTS pewlett.dept_manager(
+	 dept_no char(4) not null references pewlett.depts(dept_no)
+	,emp_no int not null references pewlett.employees(emp_no)
+	,from_date date not null
+	,to_date date not null
+);
+
+select * from pewlett.dept_manager;
 
 drop table IF EXISTS pewlett.salaries
 
